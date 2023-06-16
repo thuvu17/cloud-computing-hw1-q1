@@ -121,3 +121,15 @@ apigClientFactory.newClient = function (config) {
 
     return apigClient;
 };
+
+// Initialize SDK
+var apigClient = apigClientFactory.newClient();
+
+var apigClient = apigClientFactory.newClient({
+  accessKey: 'ACCESS_KEY',
+  secretKey: 'SECRET_KEY',
+});
+
+var apigClient = apigClientFactory.newClient({
+  apiKey: 'API_KEY'
+});
