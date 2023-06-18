@@ -1,5 +1,13 @@
 var checkout = {};
 
+// initialize SDK with AWS IAM for authorization
+var apigClient = apigClientFactory.newClient({
+  accessKey: 'ACCESS_KEY',
+  secretKey: 'SECRET_KEY',
+  sessionToken: 'SESSION_TOKEN', //OPTIONAL: If you are using temporary credentials you must include the session token
+  region: 'eu-west-1' // OPTIONAL: The region where the API is deployed, by default this parameter is set to us-east-1
+});
+
 $(document).ready(function() {
   var $messages = $('.messages-content'),
     d, h, m,
@@ -26,7 +34,34 @@ $(document).ready(function() {
   }
 
   function callChatbotApi(message) {
-    // params, body, additionalParams
+    // params + body
+    var params = {
+      //This is where any header, path, or querystring request params go. The key is the parameter named as defined in the API
+      param0: '',
+      param1: ''
+    };
+    var body = {
+        //This is where you define the body of the request
+    };
+    var additionalParams = {
+        //If there are any unmodeled query parameters or headers that need to be sent with the request you can add them here
+        headers: {
+            param0: '',
+            param1: ''
+        },
+        queryParams: {
+            param0: '',
+            param1: ''
+        }
+    };
+    
+    apigClient.methodName(params, body, additionalParams)
+        .then(function(result){
+            //This is where you would put a success callback
+        }).catch( function(result){
+            //This is where you would put an error callback
+        });
+
     return sdk.chatbotPost({}, {
       messages: [{
         type: 'unstructured',
