@@ -2,10 +2,7 @@ var checkout = {};
 
 // initialize SDK with AWS IAM for authorization
 var apigClient = apigClientFactory.newClient({
-  accessKey: 'ACCESS_KEY',
-  secretKey: 'SECRET_KEY',
-  sessionToken: 'SESSION_TOKEN', //OPTIONAL: If you are using temporary credentials you must include the session token
-  region: 'eu-west-1' // OPTIONAL: The region where the API is deployed, by default this parameter is set to us-east-1
+  apiKey: 'API_KEY'
 });
 
 $(document).ready(function() {
